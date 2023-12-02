@@ -1,12 +1,16 @@
 from pprint import pprint
-# INPUT_FILE = 'demo_part1.txt'
-INPUT_FILE = 'part1.txt'
+INPUT_FILE = 'demo_part1.txt'
+# INPUT_FILE = 'part1.txt'
 
 grid = []
 with open(INPUT_FILE, 'r') as fh:
     for line in fh:
         tmp = [int(x) for x in list(line.strip())]
         grid.append(tmp)
+
+#------------------------------------------------------------------
+#                                part 1
+#------------------------------------------------------------------
 
 # Grid of visible trees
 nrows, ncols = len(grid), len(grid[0])
@@ -44,3 +48,11 @@ for row in visible:
 
 print("Solution to part 1:")
 print(tot)
+
+#------------------------------------------------------------------
+#                                part 2
+#------------------------------------------------------------------
+
+
+def scenic_score(x: list, i: int, j: int):
+    pass
