@@ -1,6 +1,6 @@
-from ast import parse
 import math
 # INPUT_FILE = 'demo_part1.txt'
+# INPUT_FILE = 'demo_part2.txt'
 INPUT_FILE = 'part1.txt'
 
 directions = {'R': (1, 0), 'L': (-1, 0), 'U': (0, 1), 'D': (0, -1)}
@@ -53,12 +53,18 @@ class Point:
 
 
 if __name__ == '__main__':
-    head, tail = Point(), Point()
+    knots = [Point() for _ in range(10)]
+    # head, tail = Point(), Point()
     with open(INPUT_FILE, 'r') as fh:
         lines = fh.readlines()
     for line in lines:
         steps = parse_input(line.strip())
         for step in steps:
-            head.step(step)
-            tail.update_position(head)
-    print(len(set(tail.visited)))
+            # ---------- Part 1 ---------- 
+            # head.step(step)
+            # tail.update_position(head)
+        # print(len(set(tail.visited)))
+           knots[0].step(step)
+           for k in range(1, 10):
+               knots[k].update_position(knots[k-1]) 
+    print(len(set(knots[-1].visited)))
