@@ -63,7 +63,7 @@ if __name__ == '__main__':
             # ---------- Part 1 ---------- 
             # head.step(step)
             # tail.update_position(head)
-        # print(len(set(tail.visited)))
+    # print(len(set(tail.visited)))
            knots[0].step(step)
            for k in range(1, 10):
                knots[k].update_position(knots[k-1]) 
