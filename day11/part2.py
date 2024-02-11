@@ -1,9 +1,9 @@
 from collections import deque
 import math
 
-# input_file = 'part1_demo.txt'
-input_file = 'part1.txt'
-N_ROUNDS = 20
+input_file = 'part1_demo.txt'
+# input_file = 'part1.txt'
+N_ROUNDS = 800
 
 
 class Monkey:
@@ -13,8 +13,7 @@ class Monkey:
         self.parse(config)
 
     def operation(self, old):
-        new = eval(self.foo)
-        return math.floor(new/self.factor)
+        return eval(self.foo)
 
     def do_round(self, monkeys: list):
         while self.items:
@@ -49,5 +48,7 @@ monkeys = [Monkey(config) for config in configs]
 for round in range(N_ROUNDS):
     [m.do_round(monkeys) for m in monkeys]
 
-monkeys.sort(key=lambda x: x.counter, reverse=True)
-print(monkeys[0].counter * monkeys[1].counter)
+# monkeys.sort(key=lambda x: x.counter, reverse=True)
+# print(monkeys[0].counter * monkeys[1].counter)
+for n, m in enumerate(monkeys):
+    print(f'Monkey {n}: inspected {m.counter} items')
